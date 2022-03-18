@@ -1,0 +1,225 @@
+:root {
+
+    --primary: #77637A;
+    --dark-purple: #6E5B70;
+    --white: #FFFFFF;
+    --border-button: #BDAFA6;
+    --button: #F3C581;
+    --win: #5E996B;
+    --lose: #F25555;
+}
+  
+* {
+  
+    font-family: 'Baloo 2', sans-serif;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--button);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track{
+    background: var(--dark-purple);
+    border-radius: 10px;
+}
+  
+body {
+  
+    background: var(--primary) url(./imgs/texture.png) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+  
+a {
+  
+    text-decoration: none;
+  
+}
+  
+button {
+  
+    cursor: pointer;
+  
+}
+
+.logo {
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 120px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main > img {
+    width: 380px;
+    height: 160px;
+    margin-bottom: 10px;
+}
+
+#coins-container {
+    margin-bottom: 50px;
+    width: 257px;
+    height: 259px;
+    position: relative;
+    color: var(--dark-purple);
+}
+
+#coins-container::before {
+    content: "";
+    width: 257px;
+    height: 259px;
+    position: absolute;
+    background: currentColor;
+    border-radius: 50%;
+    border: 20px solid currentColor;
+    transform: translate(-50%, -50%);
+    transition: .5s;
+    top: 50%;
+    left: 50%;
+}
+
+#coins {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+}
+
+#coins div {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.coin-head {
+    background: url(./imgs/cara.png) no-repeat center;
+}
+
+.coin-tail {
+    background: url(./imgs/coroa.png) no-repeat center;
+    transform: rotateY(-180deg);
+}
+
+#buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    transition: .4s;
+}
+
+#buttons button {
+    background: var(--button);
+    border: 8px solid var(--border-button);
+    color: var(--white);
+    width: 150px;
+    height: 60px;
+    border-radius: 20px;
+    font-size: 26px;
+    transition: 0.4s;
+}
+
+#buttons button:hover {
+    filter: brightness(1.1);
+}
+
+a {
+    color: var(--white);
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    opacity: 0.5;
+    font-weight: 500;
+}
+
+.animate-heads {
+    animation: flipHeads 5s;
+    animation-fill-mode: forwards;
+}
+  
+@keyframes flipHeads {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(1800deg);
+    }
+}
+  
+.animate-tails {
+    animation: flipTails 5s;
+    animation-fill-mode: forwards;
+}
+  
+@keyframes flipTails {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(1620deg);
+    }
+} 
+
+
+@media(max-width: 900px) {
+    .logo , a {
+        display: none;
+    }
+}
+
+@media(max-width: 500px) {
+    main > img {
+        width: 250px;
+        height: auto;
+        margin-bottom: 30px;
+    }
+    
+    #coins-container {
+        margin-bottom: 60px;
+        width: 180px;
+        height: 180px;
+    }
+    
+    #coins-container::before {
+        width: 180px;
+        height: 180px;
+        border: 15px solid currentColor;
+    }
+
+    #buttons {
+        gap: 15px;
+    }
+
+    #buttons button {
+        border: 5px solid var(--border-button);
+        width: 120px;
+        height: 50px;
+        border-radius: 15px;
+    }
+}
